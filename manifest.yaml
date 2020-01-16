@@ -5,7 +5,7 @@ applications:
     instances: 1
     path: target/cf-demo-oauth2-login-0.0.1-SNAPSHOT.jar
     services:
-      - sso-test-4 # Make sure you have created an sso service instance with this name. Your app will be bound to this service instance you list here when it is pushed.
+      - mission-reporting-dev-branch-sso # Make sure you have created an sso service instance with this name. Your app will be bound to this service instance you list here when it is pushed.
     env:
       # disable the java buildpack’s auto-reconfiguration so that you always delegate to Boot to create beans.
       JBP_CONFIG_SPRING_AUTO_RECONFIGURATION: '{enabled: false}'
@@ -22,7 +22,7 @@ applications:
       SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_SSO_AUTHORIZATIONGRANTTYPE: authorization_code
 
       # The scopes requested when obtaining a token by Spring Security 5
-      SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_SSO_SCOPE: openid, profile, email, app.read, app.write
+      SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_SSO_SCOPE: openid, profile, roles, user_attributes, logs.read, logs.create
 
       # This can be used in conjunction with the cloudfoundry-certificate-truster library to skip all cert checks for
       # development environments which use self-signed certs.
@@ -43,9 +43,9 @@ applications:
       # SSO_REDIRECT_URIS: https://my-domain-here.domain.org
 
       # Client scope(s) for the application, not used for client credentials grant type
-      SSO_SCOPES: openid, profile, email, roles, user_attributes
+      SSO_SCOPES: openid, profile, roles, user_attributes, logs.read, logs.create
 
       SSO_RESOURCES: |
-        app.read:  Read Objects
-        app.write: Write Objects
+        logs.read:  Read app logs
+        logs.crete: Create app logs
 

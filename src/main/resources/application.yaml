@@ -8,24 +8,3 @@ logging:
 spring:
   application:
     name: cf-demo-oauth2-login
-  security:
-    oauth2:
-      client:
-        registration:
-          sso:
-            client-id: oauth2login-demo
-            client-secret: secret
-            client-authentication-method: basic
-            authorization-grant-type: authorization_code
-            scope: openid, profile, email
-            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
-            client-name: sso
-        provider:
-          sso:
-            authorization-uri: http://localhost:8090/uaa/oauth/authorize
-            token-uri: http://localhost:8090/uaa/oauth/token
-            user-info-uri: http://localhost:8090/uaa/userinfo
-            user-name-attribute: sub
-            jwk-set-uri: http://localhost:8090/uaa/token_keys
-
-
