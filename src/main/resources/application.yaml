@@ -24,4 +24,3 @@ spring:
           sso:
             issuer-uri: http://localhost:8090/uaa/oauth/token
             user-name-attribute: sub
-            #jwk-set-uri: http://localhost:8090/uaa/token_keys

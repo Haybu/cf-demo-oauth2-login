@@ -3,10 +3,10 @@ package io.agilehandy.cfdemooauth2login;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+//@SpringBootTest
 class CfDemoOauth2LoginApplicationTests {
 
-	@Test
+	//@Test
 	void contextLoads() {
 	}
 
