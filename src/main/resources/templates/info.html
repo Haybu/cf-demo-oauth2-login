@@ -1,0 +1,39 @@
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Authcode sample</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+  <h1>OAuth2 sample</h1>
+
+  <p><span style="font-weight:bold">You've used the authcode flow! Here's the result of calling /userinfo:</span></p>
+  <pre th:utext="${user_info}" class="user_info"></pre>
+  <p><span style="font-weight:bold">This is the Access Token that was used:</span></p>
+  <pre th:text="${access_token}" class="access_token"></pre>
+  <p><span style="font-weight:bold">This is the ID Token:</span></p>
+  <pre th:text="${id_token}" class="id_token"></pre>
+
+  <br>
+
+  <span style="font-weight:bold">User Authorities:</span>
+  <ul>
+    <li th:each="authority : ${authorities}">
+      <span th:text="${authority}"></span>
+    </li>
+  </ul>
+
+  <br>
+
+  <form th:action="|/logout|" method="POST">
+    <!--
+     By default, spring security recommend logout in the form of a POST to protect form CSRF attacks
+     For more info, visit: https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/config/annotation/web/configurers/LogoutConfigurer.html#logoutUrl-java.lang.String-
+     -->
+    <button id="logout">Log out</button>
+  </form>
+
+
+</body>
+</html>

@@ -47,5 +47,5 @@ applications:
 
       SSO_RESOURCES: |
         logs.read:  Read app logs
-        logs.crete: Create app logs
+        logs.create: Create app logs
 

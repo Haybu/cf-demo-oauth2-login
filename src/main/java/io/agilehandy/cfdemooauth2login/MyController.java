@@ -24,8 +24,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MyController {
 
-	@GetMapping
-	public String hello() {
-		return "Hello from app in cf..";
+	@GetMapping("/log/read")
+	public String readLogs() {
+		return "I am able to read logs";
+	}
+
+	@GetMapping("/log/create")
+	public String createLogs() {
+		return "I am able to create logs";
 	}
 }
